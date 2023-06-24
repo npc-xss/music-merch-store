@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
   };
 
   return (
-    <main className="mx-auto max-w-7xl px-5">
+    <Container>
       <p className="mt-10">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta cum
         fuga fugiat maiores molestias repellendus? Laudantium ab suscipit amet
@@ -22,6 +23,6 @@ export default function Home() {
       <Button className="mt-5" onClick={userSignIn}>
         Sign in with Google
       </Button>
-    </main>
+    </Container>
   );
 }

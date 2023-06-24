@@ -3,14 +3,10 @@ module.exports = {
   // darkMode: ["dark"],
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
+      colors: {
+        brand: "#111111",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
@@ -27,5 +23,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("prettier-plugin-tailwindcss"),
+  ],
 };
