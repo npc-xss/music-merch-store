@@ -3,10 +3,13 @@
 import Image from "next/image";
 import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { signIn } from 'next-auth/react';
+
 
 export default function Home() {
   const userSignIn = () => {
     console.log("sign in button clicked");
+    signIn("google")
   };
 
   return (

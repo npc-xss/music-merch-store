@@ -1,5 +1,10 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { getServerSession } from 'next-auth'
+import { authOptions } from "../../pages/api/auth/[...nextauth]";
+import SessionProvider from "@/lib/session-provider"
+import Home from "./page"
+import Profile from "./profile/page"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -8,16 +13,20 @@ export const metadata = {
   description: "Music & merch store",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout() {
+  const session = await getServerSession(authOptions);
+
   return (
     <html lang="en">
       <body className={`${inter.className} bg-brand text-white`}>
-        {children}
+      <SessionProvider session={session}>
+        {!session ? (
+          <Home/>
+        ): (
+          <Profile/>
+        )}
+      </SessionProvider>
       </body>
     </html>
-  );
+  )
 }
