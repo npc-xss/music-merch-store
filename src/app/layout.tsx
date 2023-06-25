@@ -2,7 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { getServerSession } from 'next-auth'
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
-import SessionProvider from "@/lib/session-provider"
+import Providers from "@/lib/providers"
 import Home from "./page"
 import Profile from "./profile/page"
 
@@ -13,19 +13,20 @@ export const metadata = {
   description: "Music & merch store",
 };
 
+
 export default async function RootLayout() {
   const session = await getServerSession(authOptions);
 
   return (
     <html lang="en">
       <body className={`${inter.className} bg-brand text-white`}>
-      <SessionProvider session={session}>
-        {!session ? (
-          <Home/>
-        ): (
-          <Profile/>
-        )}
-      </SessionProvider>
+        <Providers session={session}>
+          {!session ? (
+            <Home />
+          ) : (
+            <Profile />
+          )}
+        </Providers>
       </body>
     </html>
   )

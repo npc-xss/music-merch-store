@@ -1,27 +1,20 @@
 "use client";
 
-import {signOut, useSession} from "next-auth/react"
 import Container from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
-
+import Navbar from "@/components/shared/navbar";
+import { useSession } from "next-auth/react";
 
 export default function Page() {
-  const session = useSession(); 
-
-  const userSignOut = () => {
-    console.log("sign out button clicked");
-    signOut()
-  };
+  const session = useSession();
 
   return (
-    <Container>
-      <div className="mt-5 flex items-center justify-between">
-        <h1>{session?.data?.user?.name}</h1>
-
-        <div>
-          <Button onClick={userSignOut}>Sign Out</Button>
+    <>
+      <Navbar />
+      <Container>
+        <div className="mt-5 flex items-center justify-between">
+          <h1>{session?.data?.user?.name}</h1>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 }

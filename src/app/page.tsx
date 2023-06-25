@@ -1,31 +1,20 @@
-"use client";
-
-import Image from "next/image";
 import Container from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
-import { signIn } from 'next-auth/react';
-
+import Navbar from "@/components/shared/navbar";
 
 export default function Home() {
-  const userSignIn = () => {
-    console.log("sign in button clicked");
-    signIn("google")
-  };
-
   return (
-    <Container>
-      <p className="mt-10">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta cum
-        fuga fugiat maiores molestias repellendus? Laudantium ab suscipit amet
-        vitae repudiandae dolor, tenetur, veniam ducimus delectus dignissimos,
-        beatae voluptatibus accusamus expedita iusto commodi sequi. Consequatur
-        libero totam rem. Vel fuga, illo nihil atque aliquam magni blanditiis in
-        temporibus inventore! Aliquam.
-      </p>
-
-      <Button className="mt-5" onClick={userSignIn}>
-        Sign in with Google
-      </Button>
-    </Container>
+    <>
+      <Navbar />
+      <Container>
+        <p className="mt-10">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta cum
+          fuga fugiat maiores molestias repellendus? Laudantium ab suscipit amet
+          vitae repudiandae dolor, tenetur, veniam ducimus delectus dignissimos,
+          beatae voluptatibus accusamus expedita iusto commodi sequi.
+          Consequatur libero totam rem. Vel fuga, illo nihil atque aliquam magni
+          blanditiis in temporibus inventore! Aliquam.
+        </p>
+      </Container>
+    </>
   );
 }
