@@ -3,8 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import Container from "../ui/container";
-import CD from "public/images/cd.jpg"
+import CD from "public/images/cd.jpg";
 import { signIn, signOut, useSession } from "next-auth/react";
+// import { getAuthSession } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -32,8 +33,12 @@ export default function Navbar() {
   return (
     <Container>
       <nav className="mt-5 flex items-center justify-between">
-        <Link className="text-xl font-semibold bg-gradient-to-r from-violet-600 to-pink-400 text-transparent bg-clip-text" href="/">
-          @<span className="underline-offset-4 hover:underline ">eye-crown</span>
+        <Link
+          className="bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-xl font-semibold text-transparent"
+          href="/"
+        >
+          @
+          <span className="underline-offset-4 hover:underline ">eye-crown</span>
         </Link>
 
         {!session ? (
@@ -45,7 +50,14 @@ export default function Navbar() {
             </DialogTrigger>
 
             <DialogContent className="max-w-sm">
-              <DialogHeader>
+              <Image
+                className="aspect-square rounded-3xl object-cover object-bottom"
+                src={CD}
+                placeholder="blur"
+                alt="image of music cd"
+              />
+
+              <DialogHeader className="mt-5">
                 <DialogTitle className="text-center text-3xl">
                   Welcome
                 </DialogTitle>
@@ -54,9 +66,7 @@ export default function Navbar() {
                 </DialogDescription>
               </DialogHeader>
 
-              <Image className="aspect-square saturate-50 max-h-60 w-full rounded-xl object-cover object-bottom" src={CD} placeholder="blur" alt="image of music cd" />
-
-              <div className="mt-5 flex flex-col gap-5">
+              <div className="mt-2 flex flex-col gap-5">
                 <Button
                   className="w-full"
                   variant={"secondary"}
@@ -76,7 +86,14 @@ export default function Navbar() {
 
               <DialogFooter>
                 <DialogDescription className="text-center ">
-                  By signing in you agree to our <span className="underline"><Link href="">Terms of Service</Link></span> and <span className="underline"><Link href="">Privacy Policy</Link></span>
+                  By signing in you agree to our{" "}
+                  <span className="underline">
+                    <Link href="">Terms of Service</Link>
+                  </span>{" "}
+                  and{" "}
+                  <span className="underline">
+                    <Link href="">Privacy Policy</Link>
+                  </span>
                 </DialogDescription>
               </DialogFooter>
             </DialogContent>
