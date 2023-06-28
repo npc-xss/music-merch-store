@@ -1,12 +1,14 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import Container from "../ui/container";
 import CD from "public/images/cd.jpg";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { signIn, signOut, useSession } from "next-auth/react";
 // import { getAuthSession } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 import {
   Dialog,
   DialogContent,
@@ -18,17 +20,24 @@ import {
 } from "@/components/ui/dialog";
 
 export default function Navbar() {
-  const session = useSession();
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const { toast } = useToast();
 
   const userSignIn = () => {
     console.log("sign in button clicked");
     signIn("google");
+    // signIn("google", { redirect: false });
   };
 
   const userSignOut = () => {
     console.log("sign out button clicked");
     signOut();
   };
+
+  if (status === "authenticated") {
+    router.push("/profile");
+  }
 
   return (
     <Container>
@@ -37,11 +46,10 @@ export default function Navbar() {
           className="bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-xl font-semibold text-transparent"
           href="/"
         >
-          @
-          <span className="underline-offset-4 hover:underline ">eye-crown</span>
+          @<span className="underline-offset-4 hover:underline">eye-crown</span>{" "}
         </Link>
 
-        {!session ? (
+        {session ? (
           <Button onClick={userSignOut}>Sign Out</Button>
         ) : (
           <Dialog>
@@ -51,7 +59,7 @@ export default function Navbar() {
 
             <DialogContent className="max-w-sm">
               <Image
-                className="aspect-square rounded-3xl object-cover object-bottom"
+                className="mt-3 aspect-square rounded-2xl object-cover object-bottom "
                 src={CD}
                 placeholder="blur"
                 alt="image of music cd"
@@ -85,7 +93,7 @@ export default function Navbar() {
               </div>
 
               <DialogFooter>
-                <DialogDescription className="text-center ">
+                <DialogDescription className="mb-3 text-center">
                   By signing in you agree to our{" "}
                   <span className="underline">
                     <Link href="">Terms of Service</Link>
