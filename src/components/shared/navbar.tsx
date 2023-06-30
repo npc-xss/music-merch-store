@@ -18,6 +18,8 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { ShoppingCart } from "lucide-react";
+import eyeCrownLogo from "public/logos/eye-crown.png";
 
 export default function Navbar() {
   const { data: session, status } = useSession();
@@ -42,14 +44,34 @@ export default function Navbar() {
   return (
     <Container>
       <nav className="mt-5 flex items-center justify-between">
-        <Link
-          className="bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-xl font-semibold text-transparent"
-          href="/"
-        >
-          @<span className="underline-offset-4 hover:underline">eye-crown</span>{" "}
+        <Link href="/">
+          {/* <span className="bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-xl font-semibold text-transparent underline-offset-4 hover:underline">
+            @eye-crown
+          </span> */}
+
+          <Image src={eyeCrownLogo} width={40} height={40} alt="" />
         </Link>
 
-        {session ? (
+        <div className="space-x-10 rounded-full border bg-white/5 px-6 py-3 text-sm backdrop-blur-lg">
+          <Link className="transition hover:text-white/50" href="">
+            Home
+          </Link>
+          <Link className="transition hover:text-white/50" href="">
+            Music
+          </Link>
+          <Link className="transition hover:text-white/50" href="">
+            Merch
+          </Link>
+          <Link className="transition hover:text-white/50" href="">
+            Beats
+          </Link>
+        </div>
+
+        <Link className="rounded-xl p-2 hover:border-2" href="">
+          <ShoppingCart size={26} />
+        </Link>
+
+        {/* {session ? (
           <Button onClick={userSignOut}>Sign Out</Button>
         ) : (
           <Dialog>
@@ -86,10 +108,6 @@ export default function Navbar() {
                     <span>Continue with Google</span>
                   </div>
                 </Button>
-
-                {/* <Button className="w-full" variant={"secondary"} type="submit">
-                  Continue with Facebook
-                </Button> */}
               </div>
 
               <DialogFooter>
@@ -106,7 +124,7 @@ export default function Navbar() {
               </DialogFooter>
             </DialogContent>
           </Dialog>
-        )}
+        )} */}
       </nav>
     </Container>
   );
