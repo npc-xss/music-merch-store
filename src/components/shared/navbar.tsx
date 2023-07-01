@@ -18,7 +18,7 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Menu } from "lucide-react";
 import eyeCrownLogo from "public/logos/eye-crown.png";
 
 export default function Navbar() {
@@ -42,36 +42,53 @@ export default function Navbar() {
   }
 
   return (
-    <Container>
-      <nav className="mt-5 flex items-center justify-between">
-        <Link href="/">
-          {/* <span className="bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-xl font-semibold text-transparent underline-offset-4 hover:underline">
-            @eye-crown
-          </span> */}
-
-          <Image src={eyeCrownLogo} width={40} height={40} alt="" />
-        </Link>
-
-        <div className="space-x-10 rounded-full border bg-white/5 px-6 py-3 text-sm backdrop-blur-lg">
-          <Link className="transition hover:text-white/50" href="">
-            Home
+    <header className="fixed left-0 top-0 w-full border-b border-white/10 backdrop-blur-2xl">
+      <Container>
+        <nav className="flex h-14 items-center justify-between ">
+          <Link className="rounded-xl p-2 hover:border-2 md:hidden" href="">
+            <Menu size={20} />
           </Link>
-          <Link className="transition hover:text-white/50" href="">
-            Music
-          </Link>
-          <Link className="transition hover:text-white/50" href="">
-            Merch
-          </Link>
-          <Link className="transition hover:text-white/50" href="">
-            Beats
-          </Link>
-        </div>
 
-        <Link className="rounded-xl p-2 hover:border-2" href="">
-          <ShoppingCart size={26} />
-        </Link>
+          <Link
+            className="hidden bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-xl font-semibold text-transparent md:block"
+            href="/"
+          >
+            <span className=" underline-offset-4 hover:underline ">
+              eye-crown
+            </span>
+            .
+          </Link>
 
-        {/* {session ? (
+          <Link href="/">
+            <Image
+              className="transition-all duration-500 hover:scale-110"
+              src={eyeCrownLogo}
+              width={25}
+              height={25}
+              alt=""
+            />
+          </Link>
+
+          {/* <div className="hidden space-x-10 rounded-full border bg-white/5 px-6 py-3 text-sm backdrop-blur-lg md:block">
+            <Link className="transition hover:text-white/50" href="">
+              Home
+            </Link>
+            <Link className="transition hover:text-white/50" href="">
+              Music
+            </Link>
+            <Link className="transition hover:text-white/50" href="">
+              Merch
+            </Link>
+            <Link className="transition hover:text-white/50" href="">
+              Beats
+            </Link>
+          </div> */}
+
+          <Link className="rounded-xl p-2 hover:border-2 " href="">
+            <ShoppingCart size={20} />
+          </Link>
+
+          {/* {session ? (
           <Button onClick={userSignOut}>Sign Out</Button>
         ) : (
           <Dialog>
@@ -125,7 +142,8 @@ export default function Navbar() {
             </DialogContent>
           </Dialog>
         )} */}
-      </nav>
-    </Container>
+        </nav>
+      </Container>
+    </header>
   );
 }
