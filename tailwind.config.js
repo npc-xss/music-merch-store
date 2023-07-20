@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        pattern: "url('/images/textures/damascus-2.svg')",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

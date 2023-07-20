@@ -1,12 +1,11 @@
 import Image from "next/image";
-import doondaTee from "public/images/donda-tee.png";
 import { Button } from "@/components/ui/button";
 
 interface ProductCardProps {
   title: string;
   category: string;
   price: number;
-  imageSrc: string;
+  imageSrc: any;
 }
 
 export default function ProductCard({
@@ -17,26 +16,30 @@ export default function ProductCard({
 }: ProductCardProps) {
   return (
     <div className="mt-5 flex cursor-pointer items-center overflow-hidden  rounded-2xl border border-white/10 bg-neutral-800">
-      <div className="w-full">
+      <div className="h-full w-full bg-pattern bg-contain">
         <Image
-          className="w-full"
-          width={300}
-          height={300}
+          className="h-56 w-full object-cover"
           src={imageSrc}
           placeholder="blur"
           alt="product images"
         />
 
-        <div className="flex items-end justify-between border-t-2 border-white/10 p-5">
-          <div>
-            <h1 className="text-xl">{title}</h1>
-            <h2 className="text-neutral-500">{category}</h2>
-            <h3 className="mt-5 text-xl ">Rs. {price}</h3>
+        <div className=" border-t border-white/10 p-5">
+          <div className="items-end justify-between">
+            <h1 className="truncate text-lg">{title}</h1>
+            <h2 className="truncate text-neutral-500">{category}</h2>
+            <h3 className="mt-2 truncate text-xl">Rs. {price}</h3>
           </div>
 
-          <Button className="bg-violet-400 hover:bg-violet-300">
-            Add to cart
-          </Button>
+          <div>
+            {/* <Button className="mt-5 w-full truncate rounded-xl bg-violet-500 font-normal text-white hover:bg-violet-400">
+              Buy Now
+            </Button> */}
+
+            <Button className="mt-5 w-full truncate rounded-xl bg-violet-500 font-normal text-white hover:bg-violet-400">
+              Add to cart
+            </Button>
+          </div>
         </div>
       </div>
     </div>

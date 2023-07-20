@@ -44,7 +44,7 @@ export default function Navbar() {
   return (
     <header className="fixed left-0 top-0 w-full border-b border-white/10 backdrop-blur-2xl">
       <Container>
-        <nav className="flex h-14 items-center justify-between ">
+        <nav className="flex h-14 items-center justify-between">
           <Link
             className="rounded-xl p-2 ring-white/20 hover:ring-2 md:hidden"
             href=""
@@ -53,20 +53,14 @@ export default function Navbar() {
           </Link>
 
           <Link
-            className="hover:text-wh hidden bg-gradient-to-r from-violet-600 to-pink-400 bg-clip-text text-xl font-semibold text-transparent hover:text-white md:block"
+            className="hover:text-wh hidden bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-xl font-semibold text-transparent hover:text-white md:block"
             href="/"
           >
-            <span className=" underline-offset-4 ">eye-crown</span>.
+            <span className="underline-offset-4 ">eye-crown</span>.
           </Link>
 
           <Link href="/">
-            <Image
-              className="transition-all duration-500 hover:scale-125"
-              src={eyeCrownLogo}
-              width={25}
-              height={25}
-              alt=""
-            />
+            <Image src={eyeCrownLogo} width={25} height={25} alt="" />
           </Link>
 
           {/* <div className="hidden space-x-10 rounded-full border bg-white/5 px-6 py-3 text-sm backdrop-blur-lg md:block">

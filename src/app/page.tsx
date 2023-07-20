@@ -1,27 +1,21 @@
 import Container from "@/components/ui/container";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
 import ProductCard from "@/components/custom/product-card";
-import doondaTee from "public/images/donda-tee.png";
-import hoodie from "public/images/hoodie.png";
-import surveySweatShirt from "public/images/survey-sweat-shirt.png";
-import sweatShirt from "public/images/sweat-shirt.png";
-import loremTee from "public/images/lorem-tee.png";
-import eyeCrownLogo from "public/images/eye-crown-logo.svg";
+import { Button } from "@/components/ui/button";
+import { ChevronRight, Music, Shirt } from "lucide-react";
+import { products } from "@/constants/products";
 
 export default function Home() {
   return (
     <Container>
-      <div className="mt-20 h-[50rem] items-center gap-10 md:flex md:h-[37rem]">
+      <div className="mt-28 flex items-center justify-center rounded-3xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-200 via-violet-600 to-sky-900 p-10 md:justify-start lg:p-14">
         <div className="md:w-1/2">
           <div>
-            <h1 className="bg-gradient-to-b from-violet-500 via-violet-400 to-violet-300 bg-clip-text text-5xl font-extrabold leading-[3.3rem] text-transparent">
+            <h1 className="bg-gradient-to-r from-amber-200 via-pink-300 to-pink-100 bg-clip-text text-3xl font-extrabold text-transparent md:text-5xl md:leading-[3.3rem]">
               Explore The New Eye Crown Merch
             </h1>
           </div>
 
-          <div className="mt-10">
+          <div className="mt-5">
             <p className="leading-7">
               Fdipisicing ipsumds dolor sit amet consectetur adipisicing elit.
               Cluptates lorem tenetur odio voluptatem hic repellat eligendi!
@@ -36,73 +30,22 @@ export default function Home() {
             </Button>
           </div>
         </div>
-
-        <div className="flex flex-1 justify-center md:justify-end lg:flex">
-          <Image
-            className="mt-5 "
-            src={eyeCrownLogo}
-            width={400}
-            height={400}
-            alt="eye crown logo"
-          />
-        </div>
       </div>
 
       <div className="mt-10">
         <h1 className="text-3xl font-semibold">Featured Products</h1>
-
-        <div className="gap-10 md:flex">
-          <ProductCard
-            title="White"
-            category="Tee"
-            price={2000}
-            imageSrc={doondaTee}
-          />
-          <ProductCard
-            title="Brown"
-            category="Hoodie"
-            price={2000}
-            imageSrc={hoodie}
-          />
-          <ProductCard
-            title="Tan"
-            category="Sweat Shirt"
-            price={2000}
-            imageSrc={surveySweatShirt}
-          />
-          <ProductCard
-            title="Dark Blue"
-            category="Sweat Shirt"
-            price={2000}
-            imageSrc={sweatShirt}
-          />{" "}
-        </div>
-
-        <div className="mt-10 gap-10 md:flex">
-          <ProductCard
-            title="White"
-            category="Tee"
-            price={2000}
-            imageSrc={doondaTee}
-          />
-          <ProductCard
-            title="Brown"
-            category="Hoodie"
-            price={2000}
-            imageSrc={hoodie}
-          />
-          <ProductCard
-            title="Tan"
-            category="Sweat Shirt"
-            price={2000}
-            imageSrc={surveySweatShirt}
-          />
-          <ProductCard
-            title="Dark Blue"
-            category="Sweat Shirt"
-            price={2000}
-            imageSrc={sweatShirt}
-          />{" "}
+        <div className="gap-10 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {products.map((product) => {
+            return (
+              <ProductCard
+                key={product.id}
+                title={product.title}
+                category={product.category}
+                price={product.price}
+                imageSrc={product.imageSrc}
+              />
+            );
+          })}
         </div>
       </div>
     </Container>

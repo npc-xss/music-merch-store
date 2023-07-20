@@ -17,8 +17,8 @@ export default function Page() {
           <h1 className="text-3xl font-semibold">Your Cart</h1>
           <div className="mt-5 grid w-full grid-cols-5 rounded-xl p-5">
             <h1 className="col-span-2 mt-2">Product</h1>
-            <h1 className="mt-2">Price</h1>
             <h1 className="mt-2">Quantity</h1>
+            <h1 className="mt-2">Price</h1>
             <h1 className="mt-2">Total</h1>
           </div>
 

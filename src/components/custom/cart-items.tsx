@@ -11,12 +11,13 @@ interface CartItemsProps {
 export default function CartItems({ size, colour, price }: CartItemsProps) {
   return (
     <div className="grid grid-cols-5 rounded-xl border border-white/10 bg-neutral-800 px-4 py-4">
-      <div className="col-span-2 flex flex-col items-center gap-5 md:flex-row">
+      <div className="col-span-2 flex items-start gap-5">
         <Image
           className="rounded-xl"
           src={sweatShirt}
           width={100}
           height={100}
+          placeholder="blur"
           alt="check out product images"
         />
 
@@ -29,13 +30,13 @@ export default function CartItems({ size, colour, price }: CartItemsProps) {
         </div>
       </div>
 
-      <h1>Rs. {price}</h1>
-
       <input
-        className="inline-block h-10 w-16 rounded-md bg-neutral-700 px-2 focus:outline-none focus:ring-2 focus:ring-violet-400 "
+        className="inline-block h-1/2 w-16 rounded-md bg-neutral-700 px-2 text-center focus:outline-none focus:ring-2 focus:ring-violet-400"
         type="number"
         min="1"
       />
+
+      <h1>Rs. {price}</h1>
 
       <h1>Rs. </h1>
     </div>
