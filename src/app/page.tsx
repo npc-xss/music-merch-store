@@ -1,10 +1,13 @@
 import Container from "@/components/ui/container";
-import ProductCard from "@/components/custom/product-card";
+import ProductCard from "@/app/_components/product-card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Music, Shirt } from "lucide-react";
-import { products } from "@/constants/products";
+import { merch } from "@/constants/merch";
+import { ShopContext } from "@/context/shop-context";
+import { useContext } from "react";
 
 export default function Home() {
+  // const { addToCart } = useContext(ShopContext);
   return (
     <Container>
       <div className="mt-28 flex items-center justify-center rounded-3xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-200 via-violet-600 to-sky-900 p-10 md:justify-start lg:p-14">
@@ -22,7 +25,7 @@ export default function Home() {
               Lorem ipsum dolor sit amet.
             </p>
 
-            <Button className="mt-5 w-full  rounded-xl md:w-1/2" size={"lg"}>
+            <Button className="mt-5 w-full md:w-1/2" size={"lg"}>
               Shop Collection
               <span className="ml-2">
                 <ChevronRight size={23} />
@@ -35,14 +38,14 @@ export default function Home() {
       <div className="mt-10">
         <h1 className="text-3xl font-semibold">Featured Products</h1>
         <div className="gap-10 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {products.map((product) => {
+          {merch.map((element) => {
             return (
               <ProductCard
-                key={product.id}
-                title={product.title}
-                category={product.category}
-                price={product.price}
-                imageSrc={product.imageSrc}
+                key={element.id}
+                title={element.title}
+                category={element.category}
+                price={element.price}
+                imageSrc={element.imageSrc}
               />
             );
           })}

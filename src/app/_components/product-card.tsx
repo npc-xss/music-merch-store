@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { ShopContext } from "@/context/shop-context";
 
 interface ProductCardProps {
   title: string;
@@ -36,9 +37,7 @@ export default function ProductCard({
               Buy Now
             </Button> */}
 
-            <Button className="mt-5 w-full truncate rounded-xl bg-violet-500 font-normal text-white hover:bg-violet-400">
-              Add to cart
-            </Button>
+            <Button className="mt-5 w-full truncate">Add to cart</Button>
           </div>
         </div>
       </div>

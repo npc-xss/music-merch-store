@@ -79,7 +79,7 @@ export default function Navbar() {
           </div> */}
 
           <Link
-            className="rounded-xl p-2 ring-white/20 hover:ring-2"
+            className="rounded-xl p-2 ring-white/20 hover:text-violet-400"
             href="/cart"
           >
             <ShoppingCart size={20} />

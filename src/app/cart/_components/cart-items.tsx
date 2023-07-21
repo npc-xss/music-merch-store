@@ -21,10 +21,13 @@ export default function CartItems({ size, colour, price }: CartItemsProps) {
           alt="check out product images"
         />
 
-        <div>
-          <h1>Colour: {colour}</h1>
-          <h1>Size: {size}</h1>
-          <Button className="p-0 text-red-400" variant={"link"}>
+        <div className="flex h-full flex-col items-start justify-between">
+          <div>
+            <h1>Colour: {colour}</h1>
+            <h1>Size: {size}</h1>
+          </div>
+
+          <Button className="h-6 p-0 text-red-400" variant={"link"}>
             Remove
           </Button>
         </div>

@@ -3,11 +3,11 @@
 import Container from "@/components/ui/container";
 import Navbar from "@/components/shared/navbar";
 import { useSession } from "next-auth/react";
-import CartItems from "@/components/custom/cart-items";
+import CartItems from "@/app/cart/_components/cart-items";
 import { Button } from "@/components/ui/button";
 
 export default function Page() {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
   return (
     <>

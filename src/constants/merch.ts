@@ -2,9 +2,8 @@ import doondaTee from "public/images/donda-tee.png";
 import hoodie from "public/images/hoodie.png";
 import surveySweatShirt from "public/images/survey-sweat-shirt.png";
 import sweatShirt from "public/images/sweat-shirt.png";
-import loremTee from "public/images/lorem-tee.png";
 
-export const products = [
+export const merch = [
   {
     id: 1,
     title: "White",
@@ -39,7 +38,7 @@ export const products = [
     title: "White",
     category: "T-Shirt",
     price: 2000,
-    imageSrc: loremTee,
+    imageSrc: doondaTee,
   },
   {
     id: 2,
