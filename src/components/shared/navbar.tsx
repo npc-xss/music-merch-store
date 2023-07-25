@@ -4,11 +4,14 @@ import Container from "../ui/container";
 import CD from "public/images/cd.jpg";
 import Link from "next/link";
 import Image from "next/image";
+import eyeCrownLogo from "public/logos/eye-crown.png";
 import { useRouter } from "next/navigation";
 import { signIn, signOut, useSession } from "next-auth/react";
-// import { getAuthSession } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
+import { ShoppingCart, Menu } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { useCart } from "@/hooks/use-cart";
+// import { getAuthSession } from "@/lib/auth";
 import {
   Dialog,
   DialogContent,
@@ -18,13 +21,12 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { ShoppingCart, Menu } from "lucide-react";
-import eyeCrownLogo from "public/logos/eye-crown.png";
 
 export default function Navbar() {
   const { data: session, status } = useSession();
-  const router = useRouter();
+  const { items } = useCart();
   const { toast } = useToast();
+  const router = useRouter();
 
   const userSignIn = () => {
     console.log("sign in button clicked");
@@ -79,9 +81,10 @@ export default function Navbar() {
           </div> */}
 
           <Link
-            className="rounded-xl p-2 ring-white/20 hover:text-violet-400"
+            className="flex items-center gap-2 rounded-xl p-2 ring-white/20 hover:text-violet-400"
             href="/cart"
           >
+            <span>{items.length}</span>
             <ShoppingCart size={20} />
           </Link>
 

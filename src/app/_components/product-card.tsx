@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ShopContext } from "@/context/shop-context";
+import { useCart } from "@/hooks/use-cart";
 
 interface ProductCardProps {
   title: string;
@@ -15,6 +15,8 @@ export default function ProductCard({
   price,
   imageSrc,
 }: ProductCardProps) {
+  const { addToCart } = useCart();
+  // console.log(addToCart);
   return (
     <div className="mt-5 flex cursor-pointer items-center overflow-hidden  rounded-2xl border border-white/10 bg-neutral-800">
       <div className="h-full w-full bg-pattern bg-contain">
@@ -37,7 +39,12 @@ export default function ProductCard({
               Buy Now
             </Button> */}
 
-            <Button className="mt-5 w-full truncate">Add to cart</Button>
+            <Button
+              className="mt-5 w-full truncate"
+              onClick={() => addToCart(category, title, price, imageSrc)}
+            >
+              Add to cart
+            </Button>
           </div>
         </div>
       </div>

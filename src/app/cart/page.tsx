@@ -2,8 +2,8 @@
 
 import Container from "@/components/ui/container";
 import Navbar from "@/components/shared/navbar";
-import { useSession } from "next-auth/react";
 import CartItems from "@/app/cart/_components/cart-items";
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 
 export default function Page() {
@@ -13,18 +13,17 @@ export default function Page() {
     <>
       <Container className="min-h-screen">
         {/* <h1>{session?.user?.name}</h1> */}
-        <div className="mt-20">
+        <div className="mt-24">
           <h1 className="text-3xl font-semibold">Your Cart</h1>
-          <div className="mt-5 grid w-full grid-cols-5 rounded-xl p-5">
+          <div className="mt-2 grid w-full grid-cols-5 rounded-xl">
             <h1 className="col-span-2 mt-2">Product</h1>
             <h1 className="mt-2">Quantity</h1>
             <h1 className="mt-2">Price</h1>
             <h1 className="mt-2">Total</h1>
           </div>
 
-          <div className="space-y-5">
-            <CartItems colour="Blue" price={2000} size="M" />
-            <CartItems colour="White" price={1500} size="M" />
+          <div className="mt-5 space-y-5">
+            <CartItems />
           </div>
         </div>
 

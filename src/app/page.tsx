@@ -1,13 +1,12 @@
+"use client";
+
 import Container from "@/components/ui/container";
 import ProductCard from "@/app/_components/product-card";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Music, Shirt } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { merch } from "@/constants/merch";
-import { ShopContext } from "@/context/shop-context";
-import { useContext } from "react";
 
 export default function Home() {
-  // const { addToCart } = useContext(ShopContext);
   return (
     <Container>
       <div className="mt-28 flex items-center justify-center rounded-3xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-200 via-violet-600 to-sky-900 p-10 md:justify-start lg:p-14">
