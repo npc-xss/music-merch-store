@@ -3,11 +3,17 @@
 import Container from "@/components/ui/container";
 import Navbar from "@/components/shared/navbar";
 import CartItems from "@/app/cart/_components/cart-items";
-import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+// import { useSession } from "next-auth/react";
 
 export default function Page() {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
+  const router = useRouter();
+
+  function handleCheckOut() {
+    router.push("/checkout");
+  }
 
   return (
     <>
@@ -31,7 +37,9 @@ export default function Page() {
           <div className="col-span-4" />
           <div className="col-span-1">
             <h1>Sub Total: Rs. </h1>
-            <Button className="mt-5 w-full">Check Out</Button>
+            <Button className="mt-5 w-full" onClick={handleCheckOut}>
+              Check Out
+            </Button>
           </div>
         </div>
       </Container>

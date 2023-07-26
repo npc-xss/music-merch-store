@@ -17,6 +17,11 @@ export default function ProductCard({
 }: ProductCardProps) {
   const { addToCart } = useCart();
   // console.log(addToCart);
+
+  const handleAddToCart = () => {
+    addToCart({ category, title, price, imageSrc });
+  };
+
   return (
     <div className="mt-5 flex cursor-pointer items-center overflow-hidden  rounded-2xl border border-white/10 bg-neutral-800">
       <div className="h-full w-full bg-pattern bg-contain">
@@ -39,10 +44,7 @@ export default function ProductCard({
               Buy Now
             </Button> */}
 
-            <Button
-              className="mt-5 w-full truncate"
-              onClick={() => addToCart(category, title, price, imageSrc)}
-            >
+            <Button className="mt-5 w-full truncate" onClick={handleAddToCart}>
               Add to cart
             </Button>
           </div>

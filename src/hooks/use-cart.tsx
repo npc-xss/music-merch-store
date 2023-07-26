@@ -1,39 +1,22 @@
-import { title } from "process";
 import { createContext, useContext, useState } from "react";
-
+interface Item {
+  category: string;
+  title: string;
+  price: number;
+  imageSrc: string;
+}
 interface CartContextProps {
-  items: { category: string; title: string; price: number; imageSrc: string }[];
-  addToCart: (
-    category: string,
-    title: string,
-    price: number,
-    imageSrc: string
-  ) => void;
+  items: Item[];
+  addToCart: (item: Item) => void;
 }
 
 const CartContext = createContext<CartContextProps | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [items, setItems] = useState<
-    { category: string; title: string; price: number; imageSrc: string }[]
-  >([]);
+  const [items, setItems] = useState<Item[]>([]);
 
-  function addToCart(
-    category: string,
-    title: string,
-    price: number,
-    imageSrc: string
-  ) {
-    setItems(
-      (
-        prev: {
-          category: string;
-          title: string;
-          price: number;
-          imageSrc: string;
-        }[]
-      ) => [...prev, { category, title, price, imageSrc }]
-    );
+  function addToCart(item: Item) {
+    setItems((prevItems) => [...prevItems, item]);
   }
 
   return (
@@ -44,5 +27,5 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useCart() {
-  return useContext(CartContext) as CartContextProps;
+  return useContext(CartContext)!;
 }
