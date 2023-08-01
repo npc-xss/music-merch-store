@@ -1,17 +1,15 @@
 "use client";
 
 import Container from "../ui/container";
-import CD from "public/images/cd.jpg";
 import Link from "next/link";
 import Image from "next/image";
 import eyeCrownLogo from "public/logos/eye-crown.png";
+import CD from "public/images/cd.jpg";
 import { useRouter } from "next/navigation";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { Button } from "@/components/ui/button";
+import { useCart } from "@/hooks/use-cart";
 import { ShoppingCart, Menu } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { useCart } from "@/hooks/use-cart";
-// import { getAuthSession } from "@/lib/auth";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -23,25 +21,10 @@ import {
 } from "@/components/ui/dialog";
 
 export default function Navbar() {
-  const { data: session, status } = useSession();
   const { items } = useCart();
   const { toast } = useToast();
+  const session = false;
   const router = useRouter();
-
-  const userSignIn = () => {
-    console.log("sign in button clicked");
-    signIn("google");
-    // signIn("google", { redirect: false });
-  };
-
-  const userSignOut = () => {
-    console.log("sign out button clicked");
-    signOut();
-  };
-
-  if (status === "authenticated") {
-    router.push("/profile");
-  }
 
   return (
     <header className="fixed left-0 top-0 w-full border-b border-white/10 backdrop-blur-2xl">
@@ -89,7 +72,7 @@ export default function Navbar() {
           </Link>
 
           {/* {session ? (
-            <Button onClick={userSignOut}>Sign Out</Button>
+            <Button>Sign Out</Button>
           ) : (
             <Dialog>
               <DialogTrigger className="inline-block h-10 rounded-xl bg-violet-500 px-4 py-2 text-sm font-medium transition hover:bg-violet-500/70 focus:outline-none focus:ring-2 focus:ring-purple-300">
@@ -118,7 +101,6 @@ export default function Navbar() {
                     className="w-full"
                     variant={"secondary"}
                     type="submit"
-                    onClick={userSignIn}
                   >
                     <div className="flex items-center gap-2">
                       <img className="h-6 w-6" src="/logos/google.svg" alt="" />
