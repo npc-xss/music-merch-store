@@ -1,9 +1,8 @@
-"use client";
-
 import Container from "@/components/ui/container";
-import ProductCard from "@/app/_components/product-card";
+import ProductCard from "@/components/routes/product-card";
+import CategoryTabs from "../components/routes/category-tabs";
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, FileVolume, HomeIcon, Music, Shirt } from "lucide-react";
 import { merch } from "@/constants/merch";
 
 export default function Home() {
@@ -24,18 +23,37 @@ export default function Home() {
               Lorem ipsum dolor sit amet.
             </p>
 
-            <Button className="mt-5 w-full md:w-1/2" size={"lg"}>
+            {/* <Button className="mt-5 w-full md:w-1/2" size={"lg"}>
               Shop Collection
               <span className="ml-2">
                 <ChevronRight size={23} />
               </span>
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
 
+      <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-4">
+        <CategoryTabs
+          className="cursor-not-allowed"
+          category="All"
+          icon={<HomeIcon />}
+        />
+        <CategoryTabs category="Merch" icon={<Shirt />} />
+        <CategoryTabs
+          className="cursor-not-allowed"
+          category="Albums"
+          icon={<Music />}
+        />
+        <CategoryTabs
+          className="cursor-not-allowed"
+          category="Beats"
+          icon={<FileVolume />}
+        />
+      </div>
+
       <div className="mt-10">
-        <h1 className="text-3xl font-semibold">Featured Products</h1>
+        <h1 className="text-3xl font-semibold">Merch</h1>
         <div className="gap-10 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {merch.map((element) => {
             return (

@@ -2,7 +2,7 @@
 
 import Container from "@/components/ui/container";
 import Navbar from "@/components/shared/navbar";
-import CartItems from "@/app/cart/_components/cart-items";
+import CartItems from "@/components/routes/cart-items";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 // import { useSession } from "next-auth/react";
@@ -19,7 +19,7 @@ export default function Page() {
     <>
       <Container className="min-h-screen">
         {/* <h1>{session?.user?.name}</h1> */}
-        <div className="mt-24">
+        <div className=" mt-24">
           <h1 className="text-3xl font-semibold">Your Cart</h1>
           <div className="mt-2 grid w-full grid-cols-5 rounded-xl">
             <h1 className="col-span-2 mt-2">Product</h1>
