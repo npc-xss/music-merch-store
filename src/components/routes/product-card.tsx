@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
+import { useToast } from "@/components/ui/use-toast";
+import { AlertCircle, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 
 interface ProductCardProps {
   title: string;
@@ -18,10 +21,31 @@ export default function ProductCard({
   imageSrc,
 }: ProductCardProps) {
   const { addToCart } = useCart();
+  const { toast } = useToast();
+  const [cartItems, setCartItems] = useState<ProductCardProps[]>([]);
   // console.log(addToCart);
 
   const handleAddToCart = () => {
-    addToCart({ category, title, price, imageSrc });
+    const item = { category, title, price, imageSrc };
+
+    const existingItem = cartItems.find(
+      (cartItem) => cartItem.title === item.title
+    );
+    if (existingItem) {
+      toast({
+        description: "This item is already in your cart",
+        className: "bg-yellow-400 text-black border-0 rounded-xl",
+        action: <AlertCircle />,
+      });
+    } else {
+      addToCart(item);
+      setCartItems([...cartItems, item]);
+      toast({
+        description: "Product added to cart",
+        className: "bg-emerald-600 border-0 rounded-xl",
+        action: <CheckCircle2 />,
+      });
+    }
   };
 
   return (

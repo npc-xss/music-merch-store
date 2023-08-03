@@ -5,10 +5,8 @@ import Navbar from "@/components/shared/navbar";
 import CartItems from "@/components/routes/cart-items";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-// import { useSession } from "next-auth/react";
 
 export default function Page() {
-  // const { data: session } = useSession();
   const router = useRouter();
 
   function handleCheckOut() {

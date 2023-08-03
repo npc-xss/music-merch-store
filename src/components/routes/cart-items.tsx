@@ -5,7 +5,7 @@ import { useCart } from "@/hooks/use-cart";
 
 export default function CartItems() {
   const { items } = useCart();
-  // console.log(items);
+  console.log(items);
 
   return (
     <>

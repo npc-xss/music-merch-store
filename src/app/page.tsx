@@ -8,7 +8,7 @@ import { merch } from "@/constants/merch";
 export default function Home() {
   return (
     <Container>
-      <div className="mt-28 flex items-center justify-center rounded-3xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-200 via-violet-600 to-sky-900 p-10 md:justify-start lg:p-14">
+      <div className="mt-28 flex items-center justify-center rounded-3xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-200 via-violet-600 to-sky-900 p-8 md:justify-start lg:p-14">
         <div className="md:w-1/2">
           <div>
             <h1 className="bg-gradient-to-r from-amber-200 via-pink-300 to-pink-100 bg-clip-text text-3xl font-extrabold text-transparent md:text-5xl md:leading-[3.3rem]">
@@ -34,11 +34,7 @@ export default function Home() {
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-4">
-        <CategoryTabs
-          className="cursor-not-allowed"
-          category="All"
-          icon={<HomeIcon />}
-        />
+        <CategoryTabs category="All" icon={<HomeIcon />} />
         <CategoryTabs category="Merch" icon={<Shirt />} />
         <CategoryTabs
           className="cursor-not-allowed"

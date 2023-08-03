@@ -14,7 +14,7 @@ export default function CategoryTabs({
   return (
     <div
       className={cn(
-        "flex cursor-pointer gap-2 rounded-xl border bg-neutral-800 p-5 hover:bg-neutral-700",
+        "flex cursor-pointer gap-2 rounded-xl border bg-neutral-800 p-4 hover:bg-neutral-700",
         className
       )}
     >
