@@ -4,8 +4,12 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 
 export default function CartItems() {
-  const { items } = useCart();
+  const { items, removeFromCart } = useCart();
   console.log(items);
+
+  function handleRemoveItem() {
+    removeFromCart(items[0]);
+  }
 
   return (
     <>
@@ -33,7 +37,11 @@ export default function CartItems() {
                   <h1>Size: {"M"}</h1>
                 </div>
 
-                <Button className="h-6 p-0 text-red-400" variant={"link"}>
+                <Button
+                  className="h-6 p-0 text-red-400"
+                  variant={"link"}
+                  onClick={handleRemoveItem}
+                >
                   Remove
                 </Button>
               </div>
