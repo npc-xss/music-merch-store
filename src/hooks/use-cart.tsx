@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 interface Item {
-  category: string;
   title: string;
+  category: string;
   price: number;
   imageSrc: string;
 }

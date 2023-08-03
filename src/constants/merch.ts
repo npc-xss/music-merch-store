@@ -14,7 +14,7 @@ export const merch = [
   {
     id: 2,
     title: "Brown",
-    category: "hoodie",
+    category: "Hoodie",
     price: 2000,
     imageSrc: hoodie,
   },
