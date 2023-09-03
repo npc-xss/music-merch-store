@@ -31,7 +31,7 @@ export default function Navbar() {
         <nav className="flex h-14 items-center justify-between">
           <Link
             className="rounded-xl p-2 ring-white/20 hover:ring-2 md:hidden"
-            href=""
+            href="/"
           >
             <Menu size={20} />
           </Link>
