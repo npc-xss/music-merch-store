@@ -3,11 +3,10 @@
 import Container from "../ui/container";
 import Link from "next/link";
 import Image from "next/image";
-import eyeCrownLogo from "public/logos/eye-crown.png";
 import CD from "public/images/cd.jpg";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/hooks/use-cart";
-import { ShoppingCart, Menu } from "lucide-react";
+import { ShoppingCart, Menu, ShoppingBag } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import {
@@ -41,11 +40,12 @@ export default function Navbar() {
             className="hover:text-wh hidden bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-xl font-semibold text-transparent hover:text-white md:block"
             href="/"
           >
-            <span className="underline-offset-4 ">eye-crown</span>.
+            <span className="underline-offset-4 ">music-merch</span>.
           </Link>
 
-          <Link href="/">
-            <Image src={eyeCrownLogo} width={25} height={25} alt="" />
+          <Link className="hover:text-violet-300" href="/">
+            {/* <Image src="/logos/eye-crown.png" width={25} height={25} alt="" /> */}
+            <ShoppingBag size={23} />
           </Link>
 
           {/* <div className="hidden space-x-10 rounded-full border bg-white/5 px-6 py-3 text-sm backdrop-blur-lg md:block">
@@ -64,11 +64,11 @@ export default function Navbar() {
           </div> */}
 
           <Link
-            className="flex items-center gap-2 rounded-xl p-2 ring-white/20 hover:text-violet-400"
+            className="flex items-center gap-2 rounded-xl p-2 ring-white/20 hover:text-violet-300"
             href="/cart"
           >
             <span>{items.length}</span>
-            <ShoppingCart size={20} />
+            <ShoppingCart size={23} />
           </Link>
 
           {/* {session ? (

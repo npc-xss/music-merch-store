@@ -1,5 +1,4 @@
 import Image from "next/image";
-import sweatShirt from "public/images/sweat-shirt.png";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { Trash2 } from "lucide-react";

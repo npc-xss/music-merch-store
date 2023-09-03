@@ -1,10 +1,12 @@
 import { createContext, useContext, useState } from "react";
+
 interface Item {
   title: string;
   category: string;
   price: number;
   imageSrc: string;
 }
+
 interface CartContextProps {
   items: Item[];
   addToCart: (item: Item) => void;
