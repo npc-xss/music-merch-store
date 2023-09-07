@@ -1,33 +1,28 @@
 import { createContext, useContext, useState } from "react";
 
 interface Item {
-  title: string;
   category: string;
+  title: string;
   price: number;
-  imageSrc: string;
+  image: string;
 }
 
-interface CartContextProps {
+interface CartContextTypes {
   items: Item[];
   addToCart: (item: Item) => void;
-  removeFromCart: (item: Item) => void;
 }
 
-const CartContext = createContext<CartContextProps | null>(null);
+const CartContext = createContext<CartContextTypes | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<Item[]>([]);
 
-  function addToCart(item: Item) {
-    setItems((prev) => [...prev, item]);
-  }
-
-  function removeFromCart(item: Item) {
-    setItems((prev) => prev.filter((i) => i.title !== item.title));
-  }
+  const addToCart = (item: Item) => {
+    setItems((prevState) => [...prevState, item]);
+  };
 
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ items, addToCart }}>
       {children}
     </CartContext.Provider>
   );

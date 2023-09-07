@@ -1,15 +1,15 @@
 import { cn } from "@/lib/utils";
 
 interface CategoryTabsProps {
+  className?: string;
   category: string;
   icon: React.ReactNode;
-  className?: string;
 }
 
 export default function CategoryTabs({
+  className,
   category,
   icon,
-  className,
 }: CategoryTabsProps) {
   return (
     <div

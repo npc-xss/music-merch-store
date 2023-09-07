@@ -1,4 +1,5 @@
 import Container from "@/components/ui/container";
+import Link from "next/link";
 import ProductCard from "@/components/routes/product-card";
 import CategoryTabs from "../components/routes/category-tabs";
 import { Button } from "@/components/ui/button";
@@ -8,7 +9,7 @@ import { merch } from "@/constants/merch";
 export default function Home() {
   return (
     <Container>
-      <div className="mt-28 flex items-center justify-center rounded-3xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-200 via-violet-600 to-sky-900 p-8 md:justify-start lg:p-14">
+      <div className="flex items-center justify-center rounded-3xl bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-200 via-violet-600 to-sky-900 p-8 md:justify-start lg:p-14">
         <div className="md:w-1/2">
           <div>
             <h1 className="bg-gradient-to-r from-amber-200 via-pink-300 to-pink-100 bg-clip-text text-3xl font-extrabold text-transparent md:text-5xl md:leading-[3.3rem]">
@@ -18,7 +19,7 @@ export default function Home() {
 
           <div className="mt-5">
             <p className="leading-7">
-              Fdipisicing ipsumds dolor sit amet consectetur adipisicing elit.
+              Acimisic ipsumds dolor sit amet consectetur adipisicing elit.
               Cluptates lorem tenetur odio voluptatem hic repellat eligendi!
               Lorem ipsum dolor sit amet.
             </p>
@@ -34,18 +35,26 @@ export default function Home() {
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-4">
-        <CategoryTabs category="All" icon={<HomeIcon />} />
-        <CategoryTabs category="Merch" icon={<Shirt />} />
-        <CategoryTabs
-          className="cursor-not-allowed"
-          category="Albums"
-          icon={<Music />}
-        />
-        <CategoryTabs
-          className="cursor-not-allowed"
-          category="Beats"
-          icon={<FileVolume />}
-        />
+        <Link href="#">
+          <CategoryTabs category="All" icon={<HomeIcon />} />
+        </Link>
+        <Link href="#">
+          <CategoryTabs category="Merch" icon={<Shirt />} />
+        </Link>
+        <Link href="#">
+          <CategoryTabs
+            className="cursor-not-allowed"
+            category="Albums"
+            icon={<Music />}
+          />
+        </Link>
+        <Link href="#">
+          <CategoryTabs
+            className="cursor-not-allowed"
+            category="Beats"
+            icon={<FileVolume />}
+          />
+        </Link>
       </div>
 
       <div className="mt-10">
@@ -55,10 +64,10 @@ export default function Home() {
             return (
               <ProductCard
                 key={element.id}
-                title={element.title}
                 category={element.category}
+                title={element.title}
                 price={element.price}
-                imageSrc={element.imageSrc}
+                image={element.image}
               />
             );
           })}

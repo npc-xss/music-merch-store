@@ -17,7 +17,7 @@ export default function Page() {
     <>
       <Container className="min-h-screen">
         {/* <h1>{session?.user?.name}</h1> */}
-        <div className=" mt-24">
+        <div>
           <h1 className="text-3xl font-semibold">Your Cart</h1>
           <div className="mt-5 space-y-5">
             <CartItems />

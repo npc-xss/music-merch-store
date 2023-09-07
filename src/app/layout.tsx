@@ -4,12 +4,13 @@ import Footer from "@/components/shared/footer";
 import Providers from "@/app/providers";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Eye Crown",
-  description: "Music & merch store",
+  title: "Music Merch Store",
+  description: "Music and merch store",
 };
 
 export default async function RootLayout({
@@ -19,7 +20,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={cn("mt-24", inter.className)}>
         <Providers>
           <Navbar />
           {children}

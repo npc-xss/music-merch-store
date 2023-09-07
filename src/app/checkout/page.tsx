@@ -22,7 +22,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="mt-24 min-h-screen">
+    <div className="min-h-screen">
       <Container>
         <h1>Checkout page is under development</h1>
 

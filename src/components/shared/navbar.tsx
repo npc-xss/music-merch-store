@@ -20,13 +20,13 @@ import {
 } from "@/components/ui/dialog";
 
 export default function Navbar() {
-  const { items } = useCart();
   const { toast } = useToast();
+  const { items } = useCart();
   const session = false;
   const router = useRouter();
 
   return (
-    <header className="fixed left-0 top-0 w-full border-b border-white/10 backdrop-blur-2xl">
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 backdrop-blur-2xl">
       <Container>
         <nav className="flex h-14 items-center justify-between">
           <Link
@@ -43,7 +43,7 @@ export default function Navbar() {
             <span className="underline-offset-4 ">music-merch</span>.
           </Link>
 
-          <Link className="hover:text-violet-300" href="/">
+          <Link className=" hover:text-neutral-400 " href="/">
             {/* <Image src="/logos/eye-crown.png" width={25} height={25} alt="" /> */}
             <ShoppingBag size={23} />
           </Link>
@@ -64,7 +64,7 @@ export default function Navbar() {
           </div> */}
 
           <Link
-            className="flex items-center gap-2 rounded-xl p-2 ring-white/20 hover:text-violet-300"
+            className="flex items-center gap-2 rounded-xl p-2 ring-white/20 hover:text-neutral-400"
             href="/cart"
           >
             <span>{items.length}</span>
